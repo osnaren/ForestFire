@@ -5,8 +5,6 @@
 ---
 ## Table of contents
 
-Use for instance <https://github.com/ekalinin/github-markdown-toc>:
-
 > * [Title](#forest-fire-prediction)
 >   * [Table of contents](#table-of-contents)
 >   * [Abstract](#abstract)
@@ -43,7 +41,9 @@ The conventional fire detection methods have had an accuracy ranging between 80%
 > In the proposed system, forest fire images were given as input. Fire images are manually separated, equalized, enhanced, and augmented as a part of the data pre-processing procedures. At last, the pre-processed data is fed into different models with different parameters to decide the favourable model that is well suited to help detect the wildfire before it is too late to avoid the damages.
 
 ### Modules of the Project
-![Modules](/img/CNN_Flow.png)
+<!--![Modules](/img/CNN_Flow.png)-->
+<img src="/img/CNN_Flow.png" alt="Logo" width="537" height="400">
+
 
 ### CNN Models Used
 CNN is a neural network that has one or more convolutional layers and are used mainly for image processing, classification, segmentation and also for other auto correlated data. Architectures of CNN like :
