@@ -2,48 +2,103 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Forest Fire</title>
+    <title>Forest Fire Prediction</title>
+    <link rel="icon" type="image/png" href="img/fire.png">
+
     <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
-    <link rel="stylesheet" media="all" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" media="all" href="{{ url_for('static', filename='button.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" media="all" href="css/style.css">
+    <link rel="stylesheet" media="all" href="css/progress.css">
+    <link rel="stylesheet" media="all" href="css/splash.css">
+    <link rel="stylesheet" media="all" href="css/button.css">
+    <link rel="stylesheet" media="all" href="css/btn.css">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
 </head>
-<body>
-<div class="container py-5">
 
-    <div class="row py-4">
+<body onload="setTimeout(loader,2500)" class="welcome" id="bdy">
+<div class="boxes" id="splasher">
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<div class="container-fluid p-3 my-3 h-100" id="main" style="display:none">
+    <div class="row p-3 my-3 fixed-top text-center">
+        <div class="col justify-content-center"><h1 id="ffp">Forest Fire Prediction</h1></div>
+    </div>
+    <div class="row h-90">
+        <div class="col justify-content-center" id="inputimg" style="text-align:center; margin-top: 200px;">
+            <div class="row justify-content-center">
+                <h1>Input Image</h1>
+                <br><br>
+            </div>
+            <br><br>
+            <div class="row justify-content-center" style="text-align:center">
+                <div class="col-lg-10 mx-auto">
 
-        <div class="col-lg-6 mx-auto" style="text-align:center;">
-            <h1>Forest Fire Prediction</h1><br>
-            <!-- Upload image input-->
-            <form class="predict" action="/predict" method="POST" enctype="multipart/form-data">
-                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                    <input id="upload" name="upload" type="file" onchange="readURL(this);" class="form-control border-0"
-                           hidden>
-                    <label id="upload-label" for="upload" class="font-weight-light text-muted" style="left: 300px;">
-                        Choose file</label>
-                    <div class="input-group-append">
-                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i
-                                class="fa fa-cloud-upload mr-2 text-muted"></i><small
-                                class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    <!-- Upload image input-->
+                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                        <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                        <div class="input-group-append">
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i
+                                    class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                    class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                        </div>
                     </div>
                 </div>
-                <br>
-                <div class="input-group mb-3 px-2 py-2">
-
-                    <input class='button'>
-                    <input id='button' type="submit">
+            </div>
+            <div class="row justify-content-center" style="text-align:center">
+                <p class="font text-white text-center" style="font-size:20px">&#8659 The image uploaded will be shown
+                    below &#8659</p><br>
+            </div>
+            <div class="row justify-content-center" style="text-align:center">
+                <!-- Uploaded image area-->
+                <div class="image-area mt-4"><img id="imageResult" src="#" alt=""
+                                                  class="img-fluid rounded shadow-sm mx-auto d-block">
+                </div>
+            </div>
+        </div>
+        <div class="col align-items-center" style="text-align:center; margin-top: 200px;">
+            <div class="row justify-content-center">
+                <div class='button'>
+                    <input id='button' type='checkbox' onclick="checker()">
                     <label for='button'>
                         <div class='button_inner q'>
                             <i class='l ion-log-in'></i>
-                            <span class='t'>Predict</span>
+                            <span class='t'>Classify</span>
                             <span>
-                                <i class='tick ion-checkmark-round'></i>
-                            </span>
+                            <i class='tick ion-checkmark-round'></i>
+                        </span>
                             <div class='b_l_quad'>
                                 <div class='button_spots'></div>
                                 <div class='button_spots'></div>
@@ -100,17 +155,163 @@
                             </div>
                         </div>
                     </label>
+                    <div class="row mt-10 justify-content-center" style="text-align:center;margin-top: 300px;">
+                        <p class="font text-white text-center" style="font-size:20px">&#8620 Click to Classify Input
+                            Image</p><br>
+                        <p class="font text-white text-center" style="font-size:20px">&#8620 Click again to Reset</p>
+                        <br>
+                    </div>
                 </div>
-                <br>
-            </form>
-            <!-- Uploaded image area-->
-            <p class="font-italic text-white text-center">The image uploaded will show inside the box below.</p>
-            <div class="image-area mt-4"><img id="imageResult" src="#" alt=""
-                                              class="img-fluid rounded shadow-sm mx-auto d-block">
+            </div>
+        </div>
+        <div class="col align-items-center" id="pred"
+             style="text-align:center; margin-top: 200px;display:block;">
+            <h1 style="margin-left: 0">Classification Result</h1>
+
+            <div class="row align-items-center">
+                <div class="col-lg-9 mx-auto" style="width:50%">
+                    <div class="progress red">
+                        <h3 class="progress-title">FIRE</h3>
+                        <div class="progress-bar" id="fire" style="width:0">
+                            <div class="progress-value"></div>
+                        </div>
+                        <div class="progress-title1" id="fireval">~</div>
+                    </div>
+
+                    <div class="progress green">
+                        <h3 class="progress-title">NO-FIRE</h3>
+                        <div class="progress-bar" id="nofire" style="width:0">
+                            <div class="progress-value"></div>
+                        </div>
+                        <div class="progress-title1" id="nfval">~</div>
+                    </div>
+                    <div class="progress blue">
+                        <h3 class="progress-title">SMOKE</h3>
+                        <div class="progress-bar" id="smoke" style="width:0">
+                            <div class="progress-value"></div>
+                        </div>
+                        <div class="progress-title1" id="smokeval">~</div>
+                    </div>
+                    <div class="progress yellow">
+                        <h6 class="progress-title" style="font-size: 13px;">SMOKE-FIRE</h6>
+                        <div class="progress-bar" id="sfire" style="width:0">
+                            <div class="progress-value"></div>
+                        </div>
+                        <div class="progress-title1" id="sfval">~</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row fixed-bottom align-items-end mx-2 my-4 justify-content-center" id="btm">
+        <div class="col align-bottom">
+            <h4 class="copyright mb-0" style="z-index: -1">
+                © 2021 | Designed By
+            </h4>
+            <div class="perspective">
+                <div class="button1">
+                    <div class="button__icon">
+                        <a href="https://github.com/OSNaren/ForestFire" target="_blank" style="all:unset;">
+                            <img src="img/logo_nobg.gif" alt="osn" width="100" height="100">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col justify-content-right" style="zoom:70%">
+            <div class="social-btns">
+                <a class="btn github" href="https://github.com/OSNaren/" target="_blank"><i
+                        class="fa fa-github"></i></a>
+                <a class="btn linkedin" href="https://www.linkedin.com/in/obuli-sai-naren" target="_blank"><i
+                        class="fa fa-linkedin"></i></a>
+                <a class="btn twitter" href="https://twitter.com/ObuliSaiNaren" target="_blank"><i
+                        class="fa fa-twitter"></i></a>
+                <a class="btn instagram" href="https://www.instagram.com/os_technocrat" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+                <a class="btn facebook" href="https://www.facebook.com/obuli.sainaren" target="_blank"><i
+                        class="fa fa-facebook"></i></a>
+
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+
 </body>
+
+<script>
+    function checker() {
+        var chk = document.getElementById("button").checked;
+        if (chk === true) {
+            init();
+        } else {
+            setTimeout(reload, 1000);
+        }
+    }
+
+    var container = document.getElementById("main");
+    var content = container.innerHTML;
+
+    function reload() {
+        container.innerHTML = content;
+        loader();
+    }
+
+    function loader() {
+        $('link[rel=stylesheet][href*="css/splash.css"]').remove();
+        document.getElementById("main").style.display = "block";
+        document.getElementById("splasher").style.display = "none";
+        var xx = document.getElementsByClassName("progress-value");
+        var prr = ["fire", "nofire", "smoke", "sfire"];
+        for (let i = 0; i < 4; i++) {
+            xx[i].style.backgroundImage = "linear-gradient(135deg, #f5f7fa 0%, #9faac6 100%)";
+            document.getElementById(prr[i]).setAttribute("style", "width: 100%;");
+        }
+    }
+</script>
+<script type="text/javascript" src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+    const URL = "model/";
+
+    let model, maxPredictions;
+    var prg = ["fire", "nofire", "smoke", "sfire"];
+    var prval = ["fireval", "nfval", "smokeval", "sfval"];
+
+    async function init() {
+        var x = document.getElementById("pred");
+        x.style.display = "block";
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        await predict();
+    }
+
+    async function predict() {
+        var x = document.getElementById("imageResult");
+        var xx = document.getElementsByClassName("progress-value");
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(x);
+        for (let i = 0; i < maxPredictions; i++) {
+            var prd = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            var res = prediction[i].probability.toFixed(2);
+            var prd1 = parseFloat(res) * 100;
+            var prr = prd1.toString();
+            if (prd1 !== 0) {
+                document.getElementById(prg[i]).setAttribute("style", "width: " + prr + "%;");
+                document.getElementById(prval[i]).setAttribute("style", "font-size: 15;");
+                document.getElementById(prval[i]).innerHTML = prr + "%";
+                xx[i].removeAttribute("style");
+            }
+        }
+    }
+</script>
+
 </html>

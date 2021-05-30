@@ -1,0 +1,171 @@
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+  transition: all 0.35s;
+  transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+
+.social-btns .btn:before {
+  top: 90%;
+  left: -90%;
+}
+
+.social-btns .btn .fa {
+  transform: scale(0.8);
+}
+
+.social-btns .btn.linkedin:before {
+  background-color: #0077b5;
+}
+
+.social-btns .btn.linkedin .fa {
+  color: #0077b5;
+}
+
+.social-btns .btn.twitter:before {
+  background-color: #3cf;
+}
+
+.social-btns .btn.twitter .fa {
+  color: #3cf;
+}
+
+.social-btns .btn.instagram:before {
+  background-color: #fb3958;
+}
+
+.social-btns .btn.instagram .fa {
+  color: #fb3958;
+}
+
+.social-btns .btn.facebook:before {
+  background-color: #4267B2;
+}
+
+.social-btns .btn.facebook .fa {
+  color: #4267B2;
+}
+
+.social-btns .btn.github:before {
+  background-color: #000000;
+}
+
+.social-btns .btn.github .fa {
+  color: #000000;
+}
+
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+  top: -10%;
+  left: -10%;
+}
+
+.social-btns .btn:focus .fa,
+.social-btns .btn:hover .fa {
+  color: #fff;
+  transform: scale(1);
+}
+
+.social-btns {
+  height: 90px;
+  font-size: 0;
+  text-align: center;
+  position: absolute;
+  right: 90px;
+  bottom: -35px;
+}
+
+.social-btns .btn {
+  display: inline-block;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  line-height: 50px;
+  margin: 0 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28%;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  opacity: 0.99;
+}
+
+.social-btns .btn:before {
+  content: "";
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.social-btns .btn .fa {
+  font-size: 38px;
+  vertical-align: middle;
+}
+
+/*--- Logo Button ---*/
+.perspective {
+  position: relative;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  width: 140px;
+  height: 70px;
+  display: block;
+  margin-left: 250px;
+}
+
+.perspective:hover .button1, .perspective.active .button1 {
+  -webkit-transform: rotateY(10deg);
+  -moz-transform: rotateY(10deg);
+  -o-transform: rotateY(10deg);
+  -ms-transform: rotateY(10deg);
+  transform: rotateX(10deg);
+  top: -60px;
+  box-shadow: 0 3px #264BAC, 0 160px 89px rgba(66, 112, 234, 0.1);
+}
+
+.button1 {
+  position: absolute;
+  top: 0;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  color: #fff;
+  background: #ffffff;
+  box-shadow: 0 8px #264BAC, 0 60px 25px rgba(66, 112, 234, 0.19);
+  -webkit-transform: rotateY(40deg);
+  -moz-transform: rotateY(40deg);
+  -o-transform: rotateY(40deg);
+  -ms-transform: rotateY(40deg);
+  transform: rotateX(40deg);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button__icon {
+  position: relative;
+  top: 50%;
+  padding-left: 2px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.group {
+  display: inline-block;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/*# sourceMappingURL=button.css.map */
