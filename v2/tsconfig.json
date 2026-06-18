@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -41,7 +41,8 @@
       "@utils": ["./src/utils/index.ts"],
       "@utils/*": ["./src/utils/*"],
       "@visual/*": ["./src/components/visual/*"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   },
   "include": [
     "next-env.d.ts",
