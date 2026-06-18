@@ -1,7 +1,7 @@
+import { getModelPaths } from '@/lib/server/model-loader';
 import { HealthResponse } from '@/lib/types';
 import { promises as fs } from 'fs';
 import { NextResponse } from 'next/server';
-import { getModelPaths } from '@/lib/server/model-loader';
 
 export async function GET(): Promise<NextResponse<HealthResponse>> {
   try {

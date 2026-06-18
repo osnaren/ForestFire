@@ -82,7 +82,7 @@ export function Timeline({ data, className }: TimelineProps) {
           style={{
             height: height + 'px',
           }}
-          className="from-transparent via-primary/20 absolute top-0 left-8 w-0.5 overflow-hidden bg-linear-to-b to-transparent md:left-8"
+          className="via-primary/20 absolute top-0 left-8 w-0.5 overflow-hidden bg-linear-to-b from-transparent to-transparent md:left-8"
         >
           <motion.div
             style={{

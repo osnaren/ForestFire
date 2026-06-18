@@ -4,8 +4,8 @@ import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react
 import * as React from 'react';
 import { DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
 
-import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@components/ui/button';
+import { cn } from '@lib/utils';
 
 function Calendar({
   className,
@@ -36,7 +36,7 @@ function Calendar({
         ...formatters,
       }}
       classNames={{
-        root: cn('w-full', defaultClassNames.root),
+        root: cn('w-fit', defaultClassNames.root),
         months: cn('relative flex flex-col gap-4 md:flex-row', defaultClassNames.months),
         month: cn('flex w-full flex-col gap-4', defaultClassNames.month),
         nav: cn('absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1', defaultClassNames.nav),
@@ -70,7 +70,7 @@ function Calendar({
             : '[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
           defaultClassNames.caption_label
         ),
-        table: 'w-full border-collapse',
+        // table: 'w-full border-collapse',
         weekdays: cn('flex', defaultClassNames.weekdays),
         weekday: cn(
           'text-muted-foreground flex-1 select-none rounded-md text-[0.8rem] font-normal',

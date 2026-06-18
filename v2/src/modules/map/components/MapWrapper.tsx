@@ -6,8 +6,8 @@ import { Card } from '@/components/ui/card';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
-import { AnimatePresence, motion } from 'motion/react';
 import { Calendar as CalendarIcon, ChevronDown, ChevronUp, Eye, Flame, Info, Pause, Play } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
 

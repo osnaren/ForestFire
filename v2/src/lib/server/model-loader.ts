@@ -1,7 +1,7 @@
-import fs from 'fs/promises';
-import path from 'path';
-import os from 'os';
 import { existsSync } from 'fs';
+import fs from 'fs/promises';
+import os from 'os';
+import path from 'path';
 
 const MODEL_URL = process.env.MODEL_URL || 'https://cdn.osnaren.com/forest-fire/model/model.json';
 const CACHE_DIR = path.join(os.tmpdir(), 'forest-fire-model');
@@ -35,7 +35,7 @@ async function downloadModel(url: string, destDir: string) {
   // Download model.json
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Failed to fetch model.json: ${response.statusText}`);
-  
+
   const modelJson = await response.json();
   await fs.writeFile(path.join(destDir, 'model.json'), JSON.stringify(modelJson));
 
@@ -49,7 +49,7 @@ async function downloadModel(url: string, destDir: string) {
       for (const relativePath of group.paths) {
         const weightUrl = baseUrl + relativePath;
         const weightDest = path.join(destDir, relativePath);
-        
+
         // Ensure subdirectory exists if relativePath contains folders
         const weightDir = path.dirname(weightDest);
         if (!existsSync(weightDir)) {
@@ -61,7 +61,7 @@ async function downloadModel(url: string, destDir: string) {
           console.log(`Downloading weight: ${relativePath}`);
           const weightRes = await fetch(weightUrl);
           if (!weightRes.ok) throw new Error(`Failed to fetch weight ${relativePath}: ${weightRes.statusText}`);
-          
+
           const buffer = await weightRes.arrayBuffer();
           await fs.writeFile(weightDest, Buffer.from(buffer));
         }

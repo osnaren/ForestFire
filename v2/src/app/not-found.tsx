@@ -44,7 +44,7 @@ export default function NotFound() {
 
           <button
             onClick={() => router.back()}
-            className="hover:bg-accent hover:text-accent-foreground inline-flex h-11 w-full items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+            className="hover:bg-accent hover:text-accent-foreground border-input bg-background ring-offset-background focus-visible:ring-ring inline-flex h-11 w-full items-center justify-center rounded-md border px-8 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             {actions.back.text}
@@ -52,11 +52,11 @@ export default function NotFound() {
         </div>
 
         {/* Fun Fact Card */}
-        <div className="mx-auto mt-12 max-w-md rounded-xl border bg-card/50 p-6 backdrop-blur-sm">
+        <div className="bg-card/50 mx-auto mt-12 max-w-md rounded-xl border p-6 backdrop-blur-sm">
           <div className="flex items-start gap-3">
             <span className="text-2xl">💡</span>
-            <p className="text-left text-sm text-muted-foreground">
-              <span className="mb-1 block font-semibold text-foreground">Fun Fact:</span>
+            <p className="text-muted-foreground text-left text-sm">
+              <span className="text-foreground mb-1 block font-semibold">Fun Fact:</span>
               {funFact}
             </p>
           </div>

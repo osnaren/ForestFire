@@ -208,9 +208,7 @@ const UpiPaymentContent: React.FC<{
       {/* Amount Selection & Note Container */}
       <div className="space-y-5">
         <div className="space-y-3">
-          <span className="text-foreground text-sm font-medium">
-            Quick Support
-          </span>
+          <span className="text-foreground text-sm font-medium">Quick Support</span>
           <div className="grid grid-cols-4 gap-2">
             {AMOUNTS.map((amount) => (
               <Button

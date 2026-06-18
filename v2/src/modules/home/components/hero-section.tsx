@@ -9,7 +9,7 @@ import Link from 'next/link';
 export function HeroSection() {
   return (
     <section className="relative px-4 py-24 sm:py-32 lg:py-40" role="banner">
-      <div className="relative z-10 mx-auto max-w-7xl text-center space-y-10">
+      <div className="relative z-10 mx-auto max-w-7xl space-y-10 text-center">
         <AnimatedGroup preset="blur-slide">
           {/* Status Badge */}
           <header className="mb-8 flex justify-center">

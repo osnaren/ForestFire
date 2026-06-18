@@ -1,24 +1,22 @@
 {
-    "ci": {
-        "collect": {
-            "startServerCommand": "npm start",
-            "url": [
-                "http://localhost:3000/",
-                "http://localhost:3000/about",
-                "http://localhost:3000/tool",
-                "http://localhost:3000/research",
-                "http://localhost:3000/api-docs"
-            ],
-            "numberOfRuns": 1,
-            "settings": {
-                "onlyCategories": [
-                    "accessibility"
-                ]
-            }
-        },
-        "upload": {
-            "target": "filesystem",
-            "outputDir": "./lhci_reports"
-        }
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm start",
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/about",
+        "http://localhost:3000/tool",
+        "http://localhost:3000/research",
+        "http://localhost:3000/api-docs"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "onlyCategories": ["accessibility"]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./lhci_reports"
     }
+  }
 }
